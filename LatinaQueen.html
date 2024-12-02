@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LATINA QUEEN 😻</title>
+  <!-- Import Materialize CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Existing styles for web version */
+    img.responsive-img {
+      width: 30%; /* Keep width 30% on non-mobile devices */
+      height: auto; /* Height scales automatically */
+      border: 2px solid #000000; /* Styling border */
+    }
+
+    /* Specific mobile styles */
+    @media screen and (max-width: 600px) {
+      .brand-logo.center {
+        font-size: 16px; /* Adjust the font size as needed */
+      }
+      img.responsive-img {
+        width: 252px; /* Fixed width for mobile */
+        height: 336px; /* Fixed height for mobile */
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="black" style="margin-bottom: 20px;">
+    <div class="nav-wrapper container">
+      <a href="https://onlyfans.com/spicyyykali" class="brand-logo center">
+        <b>👇 SCROLL DOWN 👇</b>
+      </a>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div class="row App">
+      <div class="col s12 center-align">
+        <!-- Image remains responsive but adjusts sizes as specified -->
+        <img src="image.jpg" alt="Image" class="responsive-img">
+      </div>
+
+      <div class="col s12 m8 offset-m2 center-align">
+        <h5><b>LATINA QUEEN 💋💕</b></h5>
+        <p><strong>📍 <span id="city">Loading...</span><span id="country"></span> 🧁 23 y/o
+          ♉ Taurus </strong></p>
+        <p><strong>🟢 ONLINE NOW</strong></p>
+        <p>Come and have some fun with me and you might be the one to take my virginity 🙈
+          <p>❗️ Choosing somebody on <span id="current-date"></span></p>
+          <p>If you live around 📍<span id="city2">Loading...</span><span id="country2"></span> send me a DM on my page and let's get to know each other!</p>
+        </p>
+        <a class="btn ofbtn" href="https://onlyfans.com/spicyyykali">CLICK HERE TO CHAT ❤️</a>
+        <p class="discount"></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Import Materialize JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bdc-bigdatacloud-reverse-geocode@1.1.0/dist/bdc-bigdatacloud-reverse-geocode.min.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      getReverseGeocode(); // Call the getReverseGeocode function to fetch the user's location
+    });
+
+    var result2 = document.getElementById("city");
+    var result3 = document.getElementById("city2");
+
+    function getReverseGeocode() {
+      fetch("https://api.bigdatacloud.net/data/reverse-geocode-client")
+        .then(response => response.json())
+        .then(result => {
+          console.log(result);
+          result2.innerHTML = result.city || "Unknown";
+          result3.innerHTML = result.city || "Unknown";
+          document.getElementById("current-date").innerHTML = getCurrentDate();
+        })
+        .catch(error => {
+          console.log(error);
+          result2.innerHTML = "Failed to retrieve location";
+          result3.innerHTML = "Failed to retrieve location";
+        });
+    }
+
+    function getCurrentDate() {
+      const currentDate = new Date();
+      currentDate.setDate(currentDate.getDate() + 2); // Add 2 days to the current date
+      const options = { month: 'long', day: 'numeric' };
+      return currentDate.toLocaleDateString('en-US', options);
+    }
+
+  </script>
+</body>
+</html>
